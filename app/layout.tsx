@@ -10,17 +10,18 @@ export const metadata: Metadata = {
   description: 'პროფესიონალური ვებსაიტები ხელმისაწვდომ ფასად. ჩვენ ვქმნით თანამედროვე, სწრაფ და ხარისხიან ვებსაიტებს თქვენი ბიზნესისთვის.',
   keywords: 'ვებსაიტის შექმნა, ვებ დეველოპმენტი, საქართველო, ხელმისაწვდომი ფასები, WebSmiths',
   authors: [{ name: 'WebSmiths.btw' }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   openGraph: {
     title: 'WebSmiths.btw - ხელმისაწვდომი ვებსაიტების შექმნა',
     description: 'პროფესიონალური ვებსაიტები ხელმისაწვდომ ფასად',
     type: 'website',
   }
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 }
 
 export default function RootLayout({

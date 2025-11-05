@@ -82,14 +82,15 @@ const PortfolioPage = () => {
     },
     {
       id: 8,
-      title: 'Luka Partenadze - პირადი პორტფოლიო',
-      category: 'portfolio',
-      images: ['/images/portfolio.jpg'],
-      description: 'თანამედროვე პორტფოლიო ვებსაიტი პროექტების showcase-ით',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      features: ['პროექტების გალერეა', 'ინტერაქტიული დიზაინი', 'კონტაქტის ფორმა', 'სწრაფი ჩატვირთვა'],
-      liveUrl: 'https://lukapartenadze.vercel.app'
-    }
+      title: 'FIB Unit - GTA 5 RP Server',
+      category: 'gaming',
+      images: ['/images/FIB.jpg', '/images/FIB2.jpg'],
+      description: 'ვებსაიტი GTA 5 Roleplay სერვერისთვის - რეკრუტმენტის და ინფორმაციის სისტემით',
+      technologies: ['Next.js', 'React', 'Tailwind CSS', 'Discord Integration'],
+      features: ['სერვერის ინფორმაცია', 'რეკრუტმენტის სისტემა', 'Discord ინტეგრაცია', 'თამაშის წესები'],
+      liveUrl: 'https://fib-unit-rp.vercel.app'
+    },
+
   ]
 
   const handleProjectClick = (project: any) => {
@@ -103,6 +104,7 @@ const PortfolioPage = () => {
     { id: 'education', label: 'საგანმანათლებო' },
     { id: 'ecommerce', label: 'E-Commerce' },
     { id: 'restaurant', label: 'რესტორანი' },
+    { id: 'gaming', label: 'თამაშები' },
     { id: 'portfolio', label: 'პორტფოლიო' }
   ]
 
