@@ -56,7 +56,7 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6"
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 sm:p-8 md:p-12 lg:p-16"
           onClick={handleBackdropClick}
         >
           <motion.div
@@ -64,21 +64,21 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl max-w-6xl w-full max-h-[96vh] sm:max-h-[92vh] overflow-y-auto relative shadow-2xl"
+            className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl max-w-4xl w-full max-h-[85vh] sm:max-h-[88vh] md:max-h-[90vh] overflow-y-auto relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="sticky top-1 sm:top-2 md:top-4 right-1 sm:right-2 md:right-4 float-right z-50 bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-white p-2 sm:p-2.5 md:p-3 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all shadow-lg backdrop-blur-sm m-1 sm:m-2 md:m-0"
+              className="absolute top-4 right-4 z-50 bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-white p-2.5 sm:p-3 md:p-3.5 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all shadow-lg backdrop-blur-sm"
               aria-label="Close modal"
             >
-              <FaTimes className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+              <FaTimes className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </button>
 
             {/* Image Gallery */}
             <div className="relative bg-gray-100 dark:bg-gray-900 overflow-hidden rounded-t-xl sm:rounded-t-2xl">
-              <div className="relative h-[35vh] sm:h-[45vh] md:h-[55vh] lg:h-[65vh]">
+              <div className="relative h-[40vh] sm:h-[45vh] md:h-[50vh] lg:h-[55vh] w-full">
                 <AnimatePresence initial={false} custom={direction}>
                   <motion.div
                     key={currentIndex}
@@ -90,17 +90,20 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                       x: { type: "spring", stiffness: 300, damping: 30 },
                       opacity: { duration: 0.2 }
                     }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center"
                   >
-                    <Image
-                      src={project.images[currentIndex]}
-                      alt={`${project.title} - ${currentIndex + 1}`}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 90vw"
-                      priority={currentIndex === 0}
-                      loading={currentIndex === 0 ? "eager" : "lazy"}
-                    />
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <Image
+                        src={project.images[currentIndex]}
+                        alt={`${project.title} - ${currentIndex + 1}`}
+                        fill
+                        className="object-contain"
+                        style={{ objectPosition: 'center' }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+                        priority={currentIndex === 0}
+                        loading={currentIndex === 0 ? "eager" : "lazy"}
+                      />
+                    </div>
                   </motion.div>
                 </AnimatePresence>
 
@@ -109,17 +112,17 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                   <>
                     <button
                       onClick={prevSlide}
-                      className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white p-1.5 sm:p-2 md:p-3 lg:p-4 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all z-10 shadow-lg active:scale-95"
+                      className="absolute left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-white p-2.5 sm:p-3 md:p-4 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all z-20 shadow-xl active:scale-95"
                       aria-label="Previous image"
                     >
-                      <FaChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                      <FaChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </button>
                     <button
                       onClick={nextSlide}
-                      className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-white p-1.5 sm:p-2 md:p-3 lg:p-4 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all z-10 shadow-lg active:scale-95"
+                      className="absolute right-4 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 bg-white/95 dark:bg-gray-800/95 text-gray-800 dark:text-white p-2.5 sm:p-3 md:p-4 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all z-20 shadow-xl active:scale-95"
                       aria-label="Next image"
                     >
-                      <FaChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                      <FaChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                     </button>
 
                     {/* Dots Indicator */}
@@ -142,7 +145,7 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
                     </div>
 
                     {/* Image Counter */}
-                    <div className="absolute top-1.5 sm:top-2 md:top-4 left-1.5 sm:left-2 md:left-4 bg-black/50 backdrop-blur-sm text-white px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 md:py-1.5 rounded-full text-xs sm:text-sm font-medium z-10">
+                    <div className="absolute top-4 sm:top-5 md:top-6 left-4 sm:left-6 md:left-8 bg-black/60 backdrop-blur-sm text-white px-3 sm:px-3.5 md:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium z-20">
                       {currentIndex + 1} / {project.images.length}
                     </div>
                   </>
@@ -151,9 +154,9 @@ const ProjectModal = ({ isOpen, onClose, project }: ProjectModalProps) => {
             </div>
 
             {/* Project Details */}
-            <div className="p-3 sm:p-4 md:p-6 lg:p-8">
+            <div className="p-4 sm:p-5 md:p-6 lg:p-8">
               <div className="flex flex-col gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white pr-4 sm:pr-8 leading-tight">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white pr-12 sm:pr-14 md:pr-16 leading-tight">
                   {project.title}
                 </h2>
                 {project.liveUrl && (
