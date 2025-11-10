@@ -47,7 +47,7 @@ const ImageSlider = ({ images, alt }: ImageSliderProps) => {
   }
 
   return (
-    <div className="relative w-full h-full group overflow-hidden">
+		<div className="relative w-full h-full group overflow-hidden">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
@@ -72,6 +72,9 @@ const ImageSlider = ({ images, alt }: ImageSliderProps) => {
           />
         </motion.div>
       </AnimatePresence>
+
+			{/* Bottom gradient overlay for contrast */}
+			<div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent z-10" />
 
       {/* Navigation Arrows */}
       {images.length > 1 && (

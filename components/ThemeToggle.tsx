@@ -49,7 +49,7 @@ const ThemeToggle = () => {
   // Prevent rendering until mounted to avoid hydration mismatch
   if (!mounted) {
     return (
-      <div className="relative w-20 sm:w-20 md:w-22 lg:w-24 h-9 sm:h-9 md:h-10 rounded-full bg-gray-300 dark:bg-gray-700 flex-shrink-0" />
+      <div className="relative w-20 sm:w-20 md:w-24 lg:w-24 h-9 sm:h-9 md:h-10 rounded-full bg-gray-300 dark:bg-gray-700 flex-shrink-0" />
     )
   }
 
@@ -57,7 +57,7 @@ const ThemeToggle = () => {
     <button
       ref={buttonRef}
       onClick={toggleTheme}
-      className="relative w-20 sm:w-20 md:w-22 lg:w-24 h-9 sm:h-9 md:h-10 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 dark:from-indigo-500 dark:via-purple-600 dark:to-indigo-700 transition-all duration-500 hover:shadow-lg hover:shadow-amber-400/50 dark:hover:shadow-purple-500/50 flex-shrink-0"
+      className="relative w-20 sm:w-20 md:w-24 lg:w-24 h-9 sm:h-9 md:h-10 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 dark:from-indigo-500 dark:via-purple-600 dark:to-indigo-700 transition-all duration-500 hover:shadow-lg hover:shadow-amber-400/50 dark:hover:shadow-purple-500/50 flex-shrink-0"
       aria-label="Toggle theme"
     >
       {/* Sliding toggle circle */}

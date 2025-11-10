@@ -6,6 +6,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+      <div className="h-1 w-full bg-gradient-to-r from-primary-600/25 via-accent-400/25 to-primary-600/25" aria-hidden="true" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}

@@ -9,13 +9,20 @@ import ThemeToggle from './ThemeToggle'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+      const doc = document.documentElement
+      const totalScrollable = doc.scrollHeight - window.innerHeight
+      const progress = totalScrollable > 0 ? (window.scrollY / totalScrollable) * 100 : 0
+      setScrollProgress(progress)
     }
     window.addEventListener('scroll', handleScroll)
+    // initialize on mount
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -34,7 +41,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg py-3 sm:py-4' : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-4 sm:py-6'
+      scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm backdrop-saturate-150 shadow-lg py-3 sm:py-4' : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm backdrop-saturate-150 py-4 sm:py-6'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex justify-between items-center">
@@ -126,6 +133,14 @@ const Navbar = () => {
             </div>
           </div>
         )}
+      </div>
+      {/* Scroll Progress Bar */}
+      <div className="absolute left-0 bottom-0 h-[2px] w-full bg-transparent">
+        <div
+          className="h-full bg-gradient-to-r from-primary-600 via-accent-400 to-primary-600 transition-[width] duration-200"
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
       </div>
     </nav>
   )

@@ -70,6 +70,9 @@ const HomePage = () => {
         {/* Hero Section */}
       <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        {/* Decorative gradient orbs */}
+        <div className="pointer-events-none absolute -top-10 -left-10 w-72 h-72 rounded-full bg-primary-400/25 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-0 w-80 h-80 rounded-full bg-accent-400/25 blur-3xl" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

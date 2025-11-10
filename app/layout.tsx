@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import PageLoader from '@/components/PageLoader'
 import VisitorTracker from '@/components/VisitorTracker'
 import { Analytics } from '@vercel/analytics/react'
+import ScrollToTopButton from '@/components/ScrollToTopButton'
 
 export const metadata: Metadata = {
   title: 'PixelWeb.ge - ხელმისაწვდომი ვებსაიტების შექმნა საქართველოში',
@@ -54,6 +55,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTopButton />
         <Analytics />
       </ThemeProvider>
     </body>
