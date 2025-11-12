@@ -8,6 +8,7 @@ import VisitorTracker from '@/components/VisitorTracker'
 import { Analytics } from '@vercel/analytics/react'
 import ScrollToTopButton from '@/components/ScrollToTopButton'
 import StickyContactBar from '@/components/StickyContactBar'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'PixelWeb.ge - ხელმისაწვდომი ვებსაიტების შექმნა საქართველოში',
@@ -57,7 +58,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <ScrollToTopButton />
-        <StickyContactBar />
+        <Suspense fallback={null}>
+          <StickyContactBar />
+        </Suspense>
         <Analytics />
       </ThemeProvider>
     </body>

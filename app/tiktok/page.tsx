@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -93,6 +93,7 @@ export default function TikTokLanding() {
 
   return (
     <PageTransition>
+      <Suspense fallback={null}>
       <section className="relative pt-24 sm:pt-28 md:pt-32 pb-6 bg-gradient-to-br from-primary-50 via-white to-accent-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -261,6 +262,7 @@ export default function TikTokLanding() {
           </div>
         </div>
       </section>
+      </Suspense>
     </PageTransition>
   )
 }
