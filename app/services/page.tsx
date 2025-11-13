@@ -74,7 +74,7 @@ const ServicesPage = () => {
         '6 თვე უფასო ტექნიკური მხარდაჭერა'
       ],
       notIncluded: [],
-      marketPrice: '3,500-5,000+'
+      marketPrice: '4,000-6,000+'
     },
     {
       icon: <FaRocket className="text-5xl text-primary-600 dark:text-primary-400" />,
