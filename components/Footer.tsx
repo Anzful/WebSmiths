@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { FaFacebook, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 
 const Footer = () => {
@@ -11,10 +12,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="text-2xl font-bold mb-4">
-              <span className="text-primary-900 dark:text-primary-400">Pixel</span>
-              <span className="text-gray-900 dark:text-white">Web</span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="PixelWeb logo"
+              width={200}
+              height={60}
+              unoptimized
+              className="h-10 sm:h-12 w-auto mb-4 object-contain dark:brightness-150 dark:saturate-200 dark:contrast-125"
+            />
             <p className="text-gray-600 dark:text-gray-400 mb-4">
               პროფესიონალური ვებსაიტები ხელმისაწვდომ ფასად. გთავაზობთ საუკეთესო ხარისხს ხელმისაწვდომ ფასად საქართველოში
             </p>

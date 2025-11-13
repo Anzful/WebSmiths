@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
@@ -47,10 +48,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold">
-              <span className="text-primary-900 dark:text-primary-400">Pixel</span>
-              <span className="text-gray-800 dark:text-white">Web</span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="PixelWeb logo"
+              width={180}
+              height={56}
+              priority
+              unoptimized
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain dark:brightness-150 dark:saturate-200 dark:contrast-125"
+            />
           </Link>
 
           {/* Desktop Navigation - Hidden on mobile/tablet, shown on lg+ */}
