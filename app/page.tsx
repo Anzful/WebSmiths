@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { FaRocket, FaMoneyBillWave, FaClock, FaCheck, FaArrowRight, FaCode, FaMobile, FaPalette } from 'react-icons/fa'
-import { motion } from 'framer-motion'
+import { FaRocket, FaMoneyBillWave, FaClock, FaCheck, FaArrowRight, FaCode, FaMobile, FaPalette, FaChevronDown } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
 import PageTransition from '@/components/PageTransition'
+import { useState } from 'react'
 
 const HomePage = () => {
   const features = [
@@ -63,6 +64,31 @@ const HomePage = () => {
       features: ['უსასრულო პროდუქტი', 'გადახდის სისტემა', 'ინვენტარის მართვა', 'ანალიტიკა', '14 დღიანი მიწოდება']
     }
   ]
+
+  const faqs = [
+    {
+      q: 'რამდენი დრო სჭირდება საიტის დამზადებას?',
+      a: 'სტანდარტული „საიტის დამზადება“ (Landing ან მცირე ბიზნესი) სრულდება 3-7 დღეში (შეიძლება უფრო სწრაფადაც.). უფრო მასშტაბური „ვებგვერდების დამზადება“ შეიძლება გაგრძელდეს 2-3 კვირა, მოთხოვნებიდან გამომდინარე.'
+    },
+    {
+      q: 'რა ღირს საიტის გაკეთება?',
+      a: '„საიტების დამზადება“ იწყება 500-700 ₾-დან (Landing), ბიზნეს საიტები 1,000-2,500 ₾, ხოლო E‑commerce 3,000-5,000 ₾+. ფასები დამოკიდებულია ფუნქციონალზე და დიზაინზე.'
+    },
+    {
+      q: 'შესაძლებელია საიტები იაფად?',
+      a: 'კი — PixelWeb გვთავაზობს საიტების დამზადებას ხელმისაწვდომ ფასად ხარისხის დაკარგვის გარეშე.'
+    },
+    {
+      q: 'შესაძლებელია „საიტები სწრაფად“?',
+      a: 'დიახ. ვთავაზობთ დაჩქარებულ მიწოდებას — მცირე პროექტები მზად არის 3-5 დღეში. ასევე გვაქვს მკაფიო და მკაცრი გრაფიკი.'
+    },
+    {
+      q: 'შედის თუ არა SEO ოპტიმიზაცია?',
+      a: 'ძირითად SEO-ს ვაკეთებთ სტანდარტულად: სუფთა კოდი, სწრაფი ჩატვირთვა, სათაურები/აღწერები, სტრუქტურული მონაცემები. სურვილის შემთხვევაში ვამატებთ გაფართოებულ SEO‑ს და კონტენტის გეგმას.'
+    }
+  ]
+
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <PageTransition>
@@ -212,6 +238,66 @@ const HomePage = () => {
               იხილეთ ყველა სერვისი
               <FaArrowRight className="ml-2" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section (accordion) */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              ხშირად დასმული კითხვები (FAQ)
+            </h2>
+            <p className="text-xl text-gray-600">
+              ყველაფერი ვებგვერდების დამზადების შესახებ
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto divide-y divide-gray-200 dark:divide-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-900">
+            {faqs.map((item, index) => {
+              const isOpen = openIndex === index
+              return (
+                <div key={index} className="group">
+                  <button
+                    className="w-full flex items-center justify-between text-left px-5 sm:px-6 py-4 sm:py-5 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-panel-${index}`}
+                  >
+                    <span className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+                      {item.q}
+                    </span>
+                    <FaChevronDown
+                      className={`text-gray-500 dark:text-gray-400 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={`faq-panel-${index}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="px-5 sm:px-6"
+                      >
+                        <div className="pb-5 sm:pb-6 text-gray-600 dark:text-gray-300">
+                          {item.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
+          <div className="text-center pt-8">
+            <a href="/contact" className="inline-block bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all font-semibold">
+              დაგვიკავშირდით ფასისა და ვადების მისაღებად
+            </a>
           </div>
         </div>
       </section>

@@ -300,6 +300,8 @@ const ServicesPage = () => {
         </div>
       </section>
 
+      {/* FAQ Section removed */}
+
       {/* Process Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-primary-50 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -308,7 +310,7 @@ const ServicesPage = () => {
               როგორ ვმუშაობთ
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              მარტივი და გამჭვირვალე პროცესი დაწყებიდან გაშვებამდე
+              პროფესიონალური და სწრაფი პროცესი დაწყებიდან გაშვებამდე
             </p>
           </div>
 
