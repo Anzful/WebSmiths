@@ -11,25 +11,30 @@ import StickyContactBar from '@/components/StickyContactBar'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: 'PixelWeb.ge - ხელმისაწვდომი ვებსაიტების შექმნა საქართველოში',
-  description: 'პროფესიონალური ვებსაიტები ხელმისაწვდომ ფასად. ჩვენ ვქმნით თანამედროვე, სწრაფ და ხარისხიან ვებსაიტებს თქვენი ბიზნესისთვის.',
-  keywords: 'ვებსაიტის შექმნა, ვებ დეველოპმენტი, საქართველო, ხელმისაწვდომი ფასები, PixelWeb',
+  title: 'PixelWeb.ge - საიტის დამზადება და ვებსაიტების შექმნა საქართველოში',
+  description: 'საიტის დამზადება და ვებსაიტების შექმნა საქართველოში ხელმისაწვდომ ფასად. ვქმნით თანამედროვე, სწრაფ და ხარისხიან ვებგვერდებს თქვენი ბიზნესისთვის.',
+  keywords: 'საიტის დამზადება, ვებსაიტის შექმნა, საიტის გაკეთება, ვებ დეველოპმენტი, საქართველო, ხელმისაწვდომი ფასები, PixelWeb',
   authors: [{ name: 'PixelWeb.ge' }],
   metadataBase: new URL('https://pixelweb.ge'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'PixelWeb.ge - ხელმისაწვდომი ვებსაიტების შექმნა',
-    description: 'პროფესიონალური ვებსაიტები ხელმისაწვდომ ფასად',
+    title: 'PixelWeb.ge - საიტის დამზადება და ვებსაიტების შექმნა საქართველოში',
+    description: 'ვებსაიტების დამზადება, საიტის გაკეთება და თანამედროვე ვებგვერდები ხელმისაწვდომ ფასად.',
     type: 'website',
     url: 'https://pixelweb.ge',
     locale: 'ka_GE',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PixelWeb.ge - ხელმისაწვდომი ვებსაიტების შექმნა საქართველოში',
-    description: 'თანამედროვე, სწრაფი და ხარისხიანი ვებსაიტები თქვენი ბიზნესისთვის.',
+    title: 'PixelWeb.ge - საიტის დამზადება და ვებსაიტების შექმნა საქართველოში',
+    description: 'საიტის დამზადება, თანამედროვე დიზაინი და სწრაფი ვებსაიტები თქვენი ბიზნესისთვის.',
+  },
+  icons: {
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
   },
   robots: {
     index: true,
