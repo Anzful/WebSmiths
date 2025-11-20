@@ -73,7 +73,14 @@ const Footer = () => {
             <h3 className="text-gray-900 dark:text-white font-semibold text-lg mb-4">სერვისები</h3>
             <ul className="space-y-2">
               <li className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer">
-                Landing Page
+                <Link href="/saitis-damzadeba">
+                  საიტის დამზადება
+                </Link>
+              </li>
+              <li className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer">
+                <Link href="/services">
+                  Landing Page
+                </Link>
               </li>
               <li className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer">
                 საწარმოს ვებსაიტი
